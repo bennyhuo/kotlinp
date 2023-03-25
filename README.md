@@ -7,5 +7,5 @@ This is a copy of [JetBrains/Kotlin - kotlinp](https://github.com/JetBrains/kotl
 Kotlin Team does not publish this library to maven. So I published it to maven central for convenience.
 
 ```
-implementation("com.bennyhuo.kotlin:kotlinp:1.6.10")
+implementation("com.bennyhuo.kotlin:kotlinp:1.8.10")
 ```

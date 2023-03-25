@@ -501,10 +501,6 @@ class ClassPrinter(private val settings: KotlinpSettings) : AbstractPrinter<Kotl
             supertypes.joinTo(result)
         }
         result.appendLine(" {")
-        if (Flag.Class.HAS_ENUM_ENTRIES(flags!!)) {
-            sb.appendLine()
-            sb.appendLine("  // has Enum.entries")
-        }
         result.append(sb)
         result.appendLine("}")
     }
@@ -685,7 +681,6 @@ class ModuleFilePrinter(private val settings: KotlinpSettings) {
         sb.appendLine("}")
     }
 
-    @UnstableMetadataApi
     fun print(metadata: KotlinModuleMetadata): String {
         val kmModule = metadata.toKmModule()
         kmModule.packageParts.forEach { (fqName, kmPackageParts) ->
