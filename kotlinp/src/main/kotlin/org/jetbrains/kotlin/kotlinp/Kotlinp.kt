@@ -8,7 +8,6 @@ package org.jetbrains.kotlin.kotlinp
 import kotlinx.metadata.InconsistentKotlinMetadataException
 import kotlinx.metadata.jvm.KotlinClassMetadata
 import kotlinx.metadata.jvm.KotlinModuleMetadata
-import kotlinx.metadata.jvm.UnstableMetadataApi
 import java.io.File
 
 class Kotlinp(private val settings: KotlinpSettings) {
@@ -35,12 +34,10 @@ class Kotlinp(private val settings: KotlinpSettings) {
         }
     }
 
-    @OptIn(UnstableMetadataApi::class)
     internal fun renderModuleFile(metadata: KotlinModuleMetadata?): String =
         if (metadata != null) ModuleFilePrinter(settings).print(metadata)
         else buildString { appendLine("unsupported file") }
 
-    @OptIn(UnstableMetadataApi::class)
     internal fun readModuleFile(file: File): KotlinModuleMetadata? =
         KotlinModuleMetadata.read(file.readBytes())
 }
